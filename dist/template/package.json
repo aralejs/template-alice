@@ -1,7 +1,7 @@
 {
     "name": "{{name}}",
     "version": "1.0.0",
-    "root": "{{root}}",
+    "root": "alice",
     "description": "",
     "homepage": "",
     "author": "",
@@ -17,6 +17,6 @@
     },
     "tests": ["{{name}}"],
     "output": {
-        "{{name}}.js": "."
+        "{{name}}.css": "."
     }
 }
