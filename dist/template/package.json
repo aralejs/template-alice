@@ -3,6 +3,8 @@
     "version": "1.0.0",
     "root": "alice",
     "description": "",
+    "keywords": [
+    ],
     "homepage": "",
     "author": "",
     "repository": {
@@ -15,7 +17,6 @@
     "license": "MIT",
     "dependencies": {
     },
-    "tests": ["{{name}}"],
     "output": {
         "{{name}}.css": "."
     }
