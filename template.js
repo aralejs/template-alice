@@ -16,16 +16,15 @@ exports.template = function(grunt, init, done) {
     }
   });
 
-  init.process({type: 'arale'}, [
+  init.process({type: 'alice'}, [
     // Prompt for these values.
     init.prompt('name'),
     init.prompt('family'),
     init.prompt('version', '1.0.0'),
-    init.prompt('description', 'The best jQuery plugin ever.'),
+    init.prompt('description', ''),
     init.prompt('repository'),
     init.prompt('homepage'),
-    init.prompt('bugs'),
-    init.prompt('licenses', 'MIT')
+    init.prompt('bugs')
   ], function(err, props) {
     var files = init.filesToCopy(props);
 
@@ -36,19 +35,20 @@ exports.template = function(grunt, init, done) {
     init.writePackageJSON('package.json', {
       'family': props.family,
       'name': props.name,
-      'version': '1.0.0',
-      'root': props.family,
+      'version': props.version,
       'description': props.description ,
       'homepage': props.homepage,
       'author': props.author,
-      'repository': '',
-      'bugs': '',
-      'licenses': ['MIT'],
-      'dependencies': {},
+      'repository': props.repository,
+      'bugs': props.bugs,
+      'licenses': 'MIT',
       'tests': [props.name],
-      'output': {}
+      'spm': {
+        'alias': {},
+        'output': [props.name+'.css']
+      }
     }, function(pkg, props) {
-      ['family', 'root', 'tests', 'output', 'author'].forEach(function(prop) {
+      ['family', 'root', 'tests', 'author', 'spm'].forEach(function(prop) {
         if (prop in props) { pkg[prop] = props[prop]; }
       });
       return pkg;
