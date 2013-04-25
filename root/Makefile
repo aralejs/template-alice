@@ -12,9 +12,9 @@ server:
 watch:
 	@nico server -C $(THEME)/nico.js --watch
 
-publish: clean build-doc
-	@ghp-import _site
-	@git push origin gh-pages
+publish-doc: clean build-doc
+	@spm config source.alipay.url http://yuan.alipay.im
+	@spm publish --doc _site -s alipay
 
 clean:
 	@rm -fr _site
@@ -26,4 +26,4 @@ test:
 	@mocha-phantomjs --reporter=${reporter} http://127.0.0.1:8000/${url}
 
 
-.PHONY: build-doc debug server publish clean test
+.PHONY: build-doc debug server publish-doc clean test
