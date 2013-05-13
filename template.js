@@ -41,8 +41,6 @@ exports.template = function(grunt, init, done) {
       'author': props.author,
       'repository': props.repository,
       'bugs': props.bugs,
-      'licenses': ['MIT'],
-      'tests': [props.name],
       'spm': {
         'alias': {},
         'output': [props.name+'.css']
